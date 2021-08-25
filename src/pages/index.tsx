@@ -1,4 +1,24 @@
+import tarefasIniciais from "../data/mock";
+
 export default function Home() {
+  let tarefas = tarefasIniciais;
+  tarefas = tarefas.filtrarAtivas();
+  tarefas = tarefas.filtrarConcluidas();
+  // tarefas = tarefas.removerFitro();
+  tarefas = tarefas.excluirConcluidas();
+
+  function renderizarTarefas() {
+    return tarefas.itens.map((tarefa) => {
+      return (
+        <div key={tarefa.id}>
+          <span> {tarefa.id} |</span>
+          <span> {tarefa.descricao} |</span>
+          <span> {tarefa.concluida ? "Concluída" : "Ativa"}</span>
+        </div>
+      );
+    });
+  }
+
   return (
     <div
       className={`
@@ -7,9 +27,7 @@ export default function Home() {
       text-white
     `}
     >
-      <span>1</span>
-      <span>2</span>
-      <span>3</span>
+      {renderizarTarefas()}
     </div>
   );
 }

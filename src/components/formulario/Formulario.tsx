@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Tarefa from "../../model/Tarefa";
 
 interface FormularioProps {
@@ -37,7 +39,7 @@ export default function Formulario(props: FormularioProps) {
           bg-purple-600 text-white text-xl
         `}
       >
-        +
+        <FontAwesomeIcon icon={faPlus} />
       </button>
     </div>
   );
